@@ -1,4 +1,4 @@
-package br.pucpr.planet;
+package main.java.br.pucpr.planet;
 
 import br.pucpr.user.Theme;
 import java.util.ArrayList;

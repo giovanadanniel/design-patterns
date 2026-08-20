@@ -1,4 +1,4 @@
-package br.pucpr.user;
+package main.java.br.pucpr.user;
 
 import java.util.ArrayList;
 

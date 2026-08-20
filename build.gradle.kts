@@ -4,8 +4,8 @@ import com.github.spotbugs.snom.Effort
 plugins {
     java
     application
-    id("com.github.spotbugs") version "6.5.10"
-    id("com.diffplug.spotless") version "8.9.0"
+    id("com.github.spotbugs") version "6.0.26"
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "br.com.pucpr"
