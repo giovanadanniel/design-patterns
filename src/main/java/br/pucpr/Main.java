@@ -73,7 +73,9 @@ public class Main {
     System.out.println("-------------------");
 
     var planetData = new ColumnTableData<>(planetas, PlanetaColumns.values());
+    planetData.addListener(data -> System.out.println("Os dados da tabela mudaram!"));
     var paginated = new PaginatedTableData(planetData, 3);
+    planetData.add(planetas.get(0));
 
     System.out.println("PÁGINA 1");
     new Table(paginated).print();
