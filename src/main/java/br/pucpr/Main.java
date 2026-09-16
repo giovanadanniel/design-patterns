@@ -1,9 +1,6 @@
 package br.pucpr;
 
 import static br.pucpr.planet.PlanetType.*;
-import static br.pucpr.planet.PlanetType.DWARF;
-import static br.pucpr.planet.PlanetType.ICE;
-import static br.pucpr.table.Theme.LIGHT;
 
 import br.pucpr.planet.Planet;
 import br.pucpr.planet.PlanetaColumns;
@@ -17,6 +14,7 @@ import java.util.ArrayList;
 public class Main {
   public static void main(String[] args)
       throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
     final var usuarios = new ArrayList<User>();
     usuarios.add(
         new User(101L, "Carlos Eduardo de Souza", "carlos.souza@email.com", "12345678901"));
@@ -29,10 +27,11 @@ public class Main {
 
     System.out.println("IMPRIMINDO USUARIOS");
     System.out.println("-------------------");
+
     new Table(
             new ColumnTableData<>(
                 usuarios, new IdColumn(), new CpfColumn(), new EmailColumn(), new NameColumn()),
-            LIGHT,
+            br.pucpr.table.Theme.LIGHT,
             true)
         .print();
 
@@ -50,6 +49,7 @@ public class Main {
     System.out.println();
     System.out.println("IMPRIMINDO PLANETAS");
     System.out.println("-------------------");
+
     new Table(new ColumnTableData<>(planetas, PlanetaColumns.values())).print();
 
     System.out.println("PLANETAS REFLETIDOS");
@@ -61,7 +61,7 @@ public class Main {
         .withData(
             planetas,
             c ->
-                c.add(PlanetaColumns.values())
+                c.inspect(Planet.class)
                     .add(
                         "Distance (au)",
                         p -> "%,11.2f".formatted(Planet.kmToAu(p.sunDistanceKm()))))

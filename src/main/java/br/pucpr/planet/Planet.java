@@ -7,6 +7,7 @@ public record Planet(
     @Column(header = "    Diametro    ") double diameterKm,
     long sunDistanceKm,
     @Column PlanetType type) {
+
   public static final long EARTH_SUN_DISTANCE_KM = 149_600_000L;
 
   public static double kmToAu(long km) {
